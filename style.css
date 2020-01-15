@@ -1,0 +1,164 @@
+#app {
+  width: 560px;
+}
+
+@media only screen and (max-width: 560px) {
+  #app {
+    width: 100%;
+    left: 0;
+    transform: translate(0, -50%);
+  }
+  .content {
+    border-radius: 0px;
+  }
+}
+
+@media only screen and (max-height: 735px) {
+  #app {
+    height: 100%;
+    top: 0;
+    transform: translate(-50%, 0);
+  }
+  .content {
+    border-radius: 8px 8px 0px 0px;
+  }
+}
+
+@media only screen and (max-width: 560px) and (max-height: 735px) {
+  #app {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: translate(0, 0);
+  }
+  .content {
+    border-radius: 0px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  #app .colorBlock .ratio {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #app .title {
+    display: none;
+  }
+}
+
+.colorPicker, .colorBlock {
+  transition: height 0.2s ease-out;
+  width: 100%;
+  height: 100px;
+  margin: auto;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  background-color: var(--color-light-grey);
+}
+
+.colorPicker {
+  order: 3;
+}
+
+.colorPicker input {
+  height: 80%;
+  width: 100%;
+  transition: height 0.2s ease-out, border-bottom 0.2s ease-out;
+  cursor: pointer;
+  padding: 15px;
+  font-size: 18px;
+  border: 0px;
+  border-bottom: 4px var(--color-grey) solid;
+  border-radius: 6px;
+  color: var(--color-black);
+  box-shadow: var(--shadow-small);
+}
+
+.colorPicker input:hover {
+  height: 100%;
+}
+
+.colorPicker input:focus {
+  cursor: text;
+  border-bottom: 4px var(--color-dark-grey) solid;
+}
+
+.colorPicker input.error {
+  border-bottom: 4px var(--color-red) solid;
+}
+
+.colorPicker input::placeholder {
+  color: var(--color-dark-grey);
+}
+
+.colorPicker label {
+  transition: color 0.2s ease-out;
+  transform: translateX(calc(-100% - 15px));
+  font-size: 16px;
+  text-align: right;
+  pointer-events: none;
+  color: var(--color-dark-grey);
+}
+
+.colorPicker label.error {
+  color: var(--color-red);
+  font-weight: bold;
+}
+
+.colorPicker label.succes {
+  color: var(--color-green);
+  font-weight: bold;
+}
+
+.colorPicker input:focus + label {
+  cursor: text;
+}
+
+.colorBlock {
+  color: var(--color-grey);
+  cursor: pointer;
+}
+
+.colorBlock.disabled {
+  cursor: default;
+}
+
+.colorBlock .ratio {
+  background-color: var(--color-white);
+  color: var(--color-grey);
+  box-shadow: var(--shadow-small);
+  height: 60px;
+  width: 60px;
+  border-radius: 12px;
+  align-self: flex-end;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  font-weight: normal;
+  pointer-events: none;
+}
+
+.colorBlock .ratio.pass {
+  color: var(--color-green);
+  font-weight: bold;
+}
+
+.colorBlock .smallText {
+  font-size: 12px;
+}
+
+.colorBlock .largeText {
+  font-weight: bold;
+}
+
+.about {
+  height: 100%;
+  background-color: var(--color-light-grey);
+}

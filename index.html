@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contrast Color</title>
+  <link href="toolbox.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <!-- Vue, development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header id="app-header">
+      <a href="https://www.sjorswijsman.com#toolbox"><span>Back to Toolbox</span></a><span class="title">{{ meta.title }}</span><span class="about-button">About This</span>
+    </header>
+    <div id="app-container">
+      <div id="app-frontside">
+        <main class="content">
+          <div class="colorPicker">
+            <input id="colorInput" placeholder="#FFFFFF" oninput="getInput()" maxlength="7">
+            <label for="colorInput" class="statusMessage">Insert Your Color Here!</label>
+          </div>
+          <div class="colorBlock" v-for="(color, index) in colors" onmouseenter="colorHover(this)" onmouseleave="resetHeight()" onclick="copyColor(this)">
+            <div class="text">
+              <span class="smallText">The Quick Brown Fox (12px)</span><br>
+              <span class="largeText">The Quick Brown Fox (18px)</span><br>
+              <span class="hexText"> {{ color.hex }} </span>
+            </div>
+            <div class="ratio" v-bind:class="color.status">
+              {{ color.ratio }}
+            </div>
+          </div>
+        </main>
+      </div>
+      <div id="app-backside">
+      </div>
+    </div>
+  </div>
+</body>
+<script src="conversions.js"></script>
+<script src="script.js"></script>
+<script src="colorList.js"></script>
+</html>
